@@ -1,0 +1,155 @@
+function showWindow(elemento) {
+    elemento = document.querySelector(elemento);
+    elemento.classList.toggle('open');
+    // console.log("Estoy funcionando");
+}
+
+function windowExpand(elemento, header, pseudoelemento) {
+    elemento = document.querySelector(elemento);
+    header = document.querySelector(header);
+    pseudoelemento = document.querySelector(pseudoelemento);
+    elemento.classList.toggle('value');
+    // console.log(elemento.toggleAttribute('value'));
+
+    if (elemento.toggleAttribute('value') === true){
+        header.classList.add('change');
+        elemento.classList.add('completas');
+        pseudoelemento.classList.add('change');
+    } else {
+        header.classList.remove('change');
+        elemento.classList.remove('completas');
+    }
+    
+}
+
+
+// function windowReduce(){
+//     elemento = document.querySelector(elemento);
+//     elemento.classList.remove('completas');
+// }
+
+function mostrarTexto (objeto, textoMostrar) {
+    textIcon = document.querySelector('.text-icon');
+    // console.log(textoMostrar)
+    // console.log(objeto);
+    switch (objeto) {
+        case 'icono1':
+            textIcon.innerHTML = "Este icono de <span class='resaltar'>Proyectos</span> abrira una ventana flotante en la pantalla, la cual te mostrara todos los proyectos en los que he trabajado";
+            
+            break;
+        case 'icono2':
+            textIcon.innerHTML = "Este icono te mostrara todas mis <span class='resaltar'>Habilidades</span> en distintas herramientas";
+            break;
+        case 'icono3':
+            textIcon.innerHTML = "Este icono te mostrara infomacíon <span class='resaltar'>Sobre mi</span>";
+                break;
+        case 'icono4':
+            textIcon.innerHTML = "Este icono de <span class='resaltar'>Contacto</span> te mostrara una ventana donde podrás enviarme un correo electronico contandome sobre lo que necesites";
+                    break;
+        case 'icono5':
+            textIcon.innerHTML = 'Este icono de configuración no está disponible por ahora, podrás cambiar colores y crear tu propia interfaz sin codigo';
+            break;
+    
+        default:
+            console.log('No existe este icono')
+            break;
+    }  
+  }
+
+
+function closeInicio (){
+    document.querySelector('.inicio').classList.add('off');
+    iniciarContador = true;
+    
+    if(iniciarContador == true){
+        let i = 0;
+    let objeto = document.querySelector('.notificacion-tipo-1'); 
+    let icono = document.querySelector('.icono_visible');
+    let anuncio = document.querySelector('.anuncio');
+    anuncio.classList.add('off');
+    let temporizador = 
+        setInterval(() => {
+            if(i == 3){
+                objeto.classList.add('on');
+            }
+            if(i === 10){
+                objeto.classList.remove('on');
+                icono.classList.add('on');
+                icono.classList.add('change');
+                anuncio.classList.remove('off');
+            }
+            if(i === 15){
+                anuncio.classList.add('off');
+                icono.classList.remove('change');
+            }
+            if(i === 16){
+                let stop = true;
+                return stop;
+            }
+            // console.log(i);
+        
+            i++;
+        }, 1000);
+    
+    if(stop === true){
+        temporizador = clearInterval(temporizador);
+    }
+    } else {
+        console.log('Tenemos un error')
+    }
+}
+
+
+function mostrarAyuda(){
+    let iconoAyuda = document.querySelector('.icono_visible');
+    iconoAyuda.addEventListener('click', () =>{
+        document.querySelector('.inicio').classList.remove('off');
+    })
+
+    let verMas = document.querySelector('.noti-b');
+    verMas.addEventListener('click', ()=>{
+        document.querySelector('.inicio').classList.remove('off');
+    })
+
+    
+}
+mostrarAyuda();
+document.addEventListener("DOMContentLoaded", function(){
+	let div = document.querySelectorAll("div");
+    div[div.length-1].style.display = "none";	
+});
+
+
+
+
+=========================================================================================
+DEFECTUOSO
+==========================================================================================
+
+// function windowExpand(elemento, header, pseudoelemento, estado) {
+//     estado = document.querySelector(estado);
+//     elemento = document.querySelector(elemento);
+//     header = document.querySelector(header);
+//     pseudoelemento = document.querySelector(pseudoelemento);
+//     // console.log(estado.toggleAttribute('value'));
+//     // console.log(elemento.toggleAttribute('value'));
+//     // console.log('No llego aquí');
+//     console.log(estado.toggleAttribute('value'));
+//     estado.classList.toggle('value');
+//     if(estado.toggleAttribute('value') === true) {
+//         header.classList.add('change');
+//         elemento.classList.add('completas');
+//         pseudoelemento.classList.add('change');
+//         console.log('si')
+//     } else {
+//         header.classList.remove('change');
+//         elemento.classList.remove('completas');
+//         console.log('no')
+//     }
+// }
+
+
+// function windowReduce(){
+//     elemento = document.querySelector(elemento);
+//     elemento.classList.remove('completas');
+// }
